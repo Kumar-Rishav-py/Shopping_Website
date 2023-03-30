@@ -112,10 +112,10 @@ and frr gitignore.
 */
 
 
-mongoose
-  .connect(
-    'mongodb+srv://{uname}:{pwd}@merncluster0.xfudixz.mongodb.net/?retryWrites=true&w=majority',
-    { useCreateIndex: true, useUnifiedTopology: true, useNewUrlParser: true },
-  )
+mongoose.connect(
+  `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@merncluster0.xfudixz.mongodb.net/?retryWrites=true&w=majority`,
+  { useCreateIndex: true, useUnifiedTopology: true, useNewUrlParser: true }
+)
+
   .then(() => app.listen(process.env.PORT || 5000, console.log("Your server is up man.....")))
   .catch((err) => console.log(err));
